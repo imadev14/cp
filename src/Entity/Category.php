@@ -22,13 +22,15 @@ class Category
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Article::class)]
-    private Collection $articles;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Contact::class)]
+    private Collection $contacts;
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -59,30 +61,35 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection<int, Article>
-     */
-    public function getArticles(): Collection
+    public function __toString()
     {
-        return $this->articles;
+        return $this->titre;
     }
 
-    public function addArticle(Article $article): static
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContacts(): Collection
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles->add($article);
-            $article->setCategory($this);
+        return $this->contacts;
+    }
+
+    public function addContact(Contact $contact): static
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Article $article): static
+    public function removeContact(Contact $contact): static
     {
-        if ($this->articles->removeElement($article)) {
+        if ($this->contacts->removeElement($contact)) {
             // set the owning side to null (unless already changed)
-            if ($article->getCategory() === $this) {
-                $article->setCategory(null);
+            if ($contact->getCategory() === $this) {
+                $contact->setCategory(null);
             }
         }
 

@@ -9,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+
+    const COUVERTURE = 'Couverture';
+    const GALERIE = 'Galerie';
+    const TOITURE = 'Toiture';
+    const ACCUEIL = 'Accueil';
+    const RENOVATION = 'Renovation';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,6 +29,8 @@ class Article
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Category $category = null;
+
+
 
     public function getId(): ?int
     {
