@@ -21,7 +21,7 @@ class CouvertureController extends AbstractController
         ]);
 
         return $this->render('couverture/index.html.twig', [
-            'controller_name' => 'CouvertureController',
+            'controller_name' => 'totoController',
         ]);
     }
 }
