@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class AccueilController extends AbstractController
     {
         $articles = $articleRepository->findBy([
             'category' => $categoryRepository->findBy([
-                'titre' => Article::ACCUEIL
+                'titre' => Category::ACCUEIL
             ])
         ]);
         return $this->render('accueil/index.html.twig', [

@@ -3,18 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
-
-    const COUVERTURE = 'Couverture';
-    const GALERIE = 'Galerie';
-    const TOITURE = 'Toiture';
-    const ACCUEIL = 'Accueil';
-    const RENOVATION = 'Renovation';
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,7 +25,20 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Category $category = null;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private $image;
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {

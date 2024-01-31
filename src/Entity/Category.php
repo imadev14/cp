@@ -11,6 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
+
+    const COUVERTURE = 'Couverture';
+    const GALERIE = 'Galerie';
+    const TOITURE = 'Types de Toiture';
+    const ACCUEIL = 'Accueil';
+    const MATERIAUX = 'Matériaux de couverture';
+    const PEINTURE = 'Peinture';
+    const ENTRETIEN = 'Entretien et réparation';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

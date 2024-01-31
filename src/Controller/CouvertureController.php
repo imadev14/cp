@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,14 +15,12 @@ class CouvertureController extends AbstractController
     #[Route('/couverture', name: 'app_couverture')]
     public function index(ArticleRepository $articleRepository, CategoryRepository $categoryRepository): Response
     {
-        $articles = $articleRepository->findBy([
-            'category' =>  $categoryRepository->findBy([
-                'titre' => Article::COUVERTURE
-            ])
-        ]);
-
         return $this->render('couverture/index.html.twig', [
-            'controller_name' => 'totoController',
+            'articles' => $articleRepository->findBy([
+                'category' =>  $categoryRepository->findBy([
+                    'titre' => Category::COUVERTURE
+                ])
+            ]),
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,15 +15,12 @@ class GalerieController extends AbstractController
     #[Route('/galerie', name: 'app_galerie')]
     public function index(ArticleRepository $articleRepository, CategoryRepository $categoryRepository): Response
     {
-        $articles = $articleRepository->findBy([
-            'category' => $categoryRepository->findBy([
-                'titre' => Article::GALERIE
-            ])
-
-        ]);
-
         return $this->render('galerie/index.html.twig', [
-            'controller_name' => 'GalerieController',
+            'articles' => $articleRepository->findBy([
+                'category' => $categoryRepository->findBy([
+                    'titre' => Category::GALERIE
+                ])
+            ]),
         ]);
     }
 }

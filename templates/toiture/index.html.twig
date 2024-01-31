@@ -1,33 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Toiture{% endblock %}
+{% block title %}Types de Toiture{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper {
-        margin: 1em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
-
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at
-            <code><a href="{{ 'C:/laragon/www/couverturePlus/src/Controller/ToitureController.php'|file_link(0) }}">src/Controller/ToitureController.php</a></code>
-        </li>
-        <li>Your template at
-            <code><a href="{{ 'C:/laragon/www/couverturePlus/templates/toiture/index.html.twig'|file_link(0) }}">templates/toiture/index.html.twig</a></code>
-        </li>
-    </ul>
+<div class="container mt-3">
+    {% for article in articles %}
+    <h3>{{ article.libelle }}</h3>
+    <p>{{ article.information }}</p>
+    {% endfor %}
 </div>
 {% endblock %}
