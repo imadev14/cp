@@ -3,10 +3,31 @@
 {% block title %}Peinture{% endblock %}
 
 {% block body %}
-<div class="container mt-3">
+<div class="container">
+    <h1 style="font-size: 50px;" class="title-content">Peinture</h1>
     {% for article in articles %}
-    <h3>{{ article.libelle }}</h3>
-    <p>{{ article.information }}</p>
+    <div class="row article-row {% if loop.index is even %}flex-row-reverse{% endif %}">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-lg-{{ loop.index }}" data-aos="fade-left" data-aos-delay="100">
+            <div class="article-content">
+                <h3 id="{{ article.libelle }}">{{ article.libelle }}</h3>
+                <p>{{ article.information }}</p>
+            </div>
+        </div>
+        <div class="col-lg-6 order-lg-{{ loop.index }}" data-aos="fade-right" data-aos-delay="100">
+            {% if article.image is not null %}
+            <div class="article-image-container">
+                <img src="{{ asset('uploads/articles/' ~ article.image) }}" alt="Image de l'article" class="img-fluid">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <section class="cta" style="width: 100%; margin-bottom: 20px;" data-aos-delay="150;">
+        <div class="container">
+            <div class="text-center">
+                <a class="cta-btn" href="{{ path('app_devis') }}">Demander votre devis</a>
+            </div>
+        </div>
+    </section>
     {% endfor %}
 </div>
 {% endblock %}

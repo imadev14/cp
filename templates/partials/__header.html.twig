@@ -1,9 +1,10 @@
 <header id="header" class="fixed-top" style="background: rgba(0, 0, 0, 0.8);">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="index.html">C<span>+</span></a></h1>
+        <!--<h1 class="logo me-auto me-lg-0"><a href="index.html">C<span>+</span></a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <a href="{{ path('app_accueil') }}" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt=""
+                class="img-fluid"></a>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
@@ -11,60 +12,55 @@
                 <li class="dropdown"><a href="{{ path('app_couverture') }}"><span>Couverture</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown"><a href="{{ path('app_materiaux') }}"><span>Matériaux de couverture</span> <i
-                            class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Ardoise</a></li>
-                        <li><a href="#">Bois</a></li>
-                        <li><a href="#">Tuiles en ceramique</a></li>
-                        <li><a href="#">Metaux (acier, aluminium, cuivre)</a></li>
+                        <li><a href="{{ path('app_couverture')}}#Isolation toiture">Isolation Toiture</a></li>
+                        <li><a href="{{ path('app_couverture')}}#Inspection réguliere">Inspection réguliere</a></li>
+                        <li><a href="{{ path('app_couverture')}}#Nettoyage de la toiture">Nettoyage de la toiture</a>
+                        </li>
+                        <li><a href="{{ path('app_couverture')}}#Réparation des fuites">Réparation des fuites</a></li>
+                        <li><a href="{{ path('app_couverture')}}#Remplacement des matériaux endommagé">Remplacement des
+                                matériaux endommagé</a>
+                        </li>
+                        <li><a href="#Programme d'entretien préventif">Programme d'entretien préventif</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="{{ path('app_toiture') }}"><span>Type de toiture</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Toits en pente</a>
+                        <li><a href="{{ path('app_toiture') }}#Toits en pente">Toits en pente</a>
                         </li>
-                        <li><a href="#">Toits plats</a></li>
-                        <li><a href="#">Toits en bardeaux</a></li>
-                        <li><a href="#">Toits en tuiles</a></li>
-                        <li><a href="#">Toits en metal</a></li>
-                        <li><a href="#">Toitures végétales</a></li>
+                        <li><a href="{{ path('app_toiture') }}#Toits plats">Toits plats</a></li>
+                        <li><a href="{{ path('app_toiture') }}#Toits en bardeaux">Toits en bardeaux</a></li>
+                        <li><a href="{{ path('app_toiture') }}#Toits en tuiles">Toits en tuiles</a></li>
+                        <li><a href="{{ path('app_toiture') }}#Toits en metal">Toits en metal</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="{{ path('app_materiaux') }}"><span>Matériaux de couverture</span> <i
+                            class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="{{ path('app_materiaux') }}#Ardoise">Ardoise</a></li>
+                        <li><a href="{{ path('app_materiaux') }}#Bois">Bois</a></li>
+                        <li><a href="{{ path('app_materiaux') }}#Tuiles en ceramique">Tuiles en ceramique</a></li>
+                        <li><a href="{{ path('app_materiaux') }}#Metaux (acier, aluminium, cuivre)">Metaux (acier,
+                                aluminium, cuivre)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="{{ path('app_peinture') }}"><span>Peinture</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Peinture ravalement</a>
+                        <li><a href="{{ path('app_peinture') }}#Peinture ravalement">Peinture ravalement</a>
                         </li>
-                        <li><a href="#">Peinture boiseries</a></li>
-                        <li><a href="#">Lasure de boiserie</a></li>
-                        <li><a href="#">Peinture interieur et exterieur</a></li>
-                        <li><a href="#">Peinture sur cheminée</a></li>
+                        <li><a href="{{ path('app_peinture') }}#Peinture boiseries">Peinture boiseries</a></li>
+                        <li><a href="{{ path('app_peinture') }}#Lasure de boiserie">Lasure de boiserie</a></li>
+                        <li><a href="{{ path('app_peinture') }}#Peinture interieur et exterieur">Peinture interieur et
+                                exterieur</a></li>
+                        <li><a href="{{ path('app_peinture') }}#Peinture sur cheminée">Peinture sur cheminée</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="{{ path('app_entretien') }}"><span>Entretien et réparation</span> <i
-                            class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Inspection réguliere</a></li>
-                        <li><a href="#">Nettoyage de la toiture</a></li>
-                        <li><a href="#">Réparation des fuites</a></li>
-                        <li><a href="#">Remplacement des matériaux endommagé</a></li>
-                        <li><a href="#">Programme d'entretien préventif</a></li>
-                    </ul>
-                </li>
-                <li><a class="nav-link scrollto" href="#">Galerie</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-
-        <a href="#contact" class="get-started-btn scrollto">Devis ></a>
-
+        <a href="tel:+33649931360" class="get-started-btn scrollto d-md-none"><strong
+                class="bi bi-telephone-outbound-fill"></strong></a>
+        <a href="{{ path('app_devis') }}" class="get-started-btn scrollto"><strong>Devis ></strong></a>
     </div>
 </header>

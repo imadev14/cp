@@ -26,6 +26,7 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('CouverturePlus')
+            ->setFaviconPath("assets/img/favicon.png")
             ->setLocales(['fr', 'en']);
     }
 

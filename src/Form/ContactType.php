@@ -2,13 +2,15 @@
 
 namespace App\Form;
 
-use App\Entity\Category;
 use App\Entity\Contact;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -16,16 +18,26 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('prenom')
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom'
+            ])
             ->add('email')
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'titre',
+                'label' => 'Catégorie'
             ])
-            ->add('objet')
+            ->add('objet', TextareaType::class, [
+                'label' => 'Votre projet',
+                'attr' => [
+                    'style' => 'height: 200px;',
+                ]
+            ])
             ->add('valider', SubmitType::class, [
                 'attr' => [
-                    'class' => 'valider'
+                    'class' => 'valider',
+                    'style' => 'background-color: red',
+                    'class' => 'get-started-btn',
                 ]
             ]);
     }

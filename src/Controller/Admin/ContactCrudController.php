@@ -32,7 +32,8 @@ class ContactCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('email'),
-            AssociationField::new('category'),
+            AssociationField::new('category')
+                ->setLabel('Catégorie'),
             TextEditorField::new('objet'),
 
         ];

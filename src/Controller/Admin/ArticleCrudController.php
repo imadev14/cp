@@ -35,7 +35,8 @@ class ArticleCrudController extends AbstractCrudController
         return [
             TextField::new('libelle'),
             TextareaField::new('information'),
-            AssociationField::new('category'),
+            AssociationField::new('category')
+                ->setLabel('Catégorie'),
             TextField::new('image')
                 ->setFormType(FileType::class)
                 ->onlyOnForms(),

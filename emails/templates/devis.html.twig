@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<header id="header" class="fixed-top" style="background: rgba(0, 0, 0, 0.8);">
+    <div class="container d-flex align-items-center justify-content-center">
+        <!-- Utilisez justify-content-center pour centrer le contenu -->
+        <div class="d-flex align-items-center">
+            <a href="{{ path('app_accueil') }}" class="logo me-auto me-lg-0"><img
+                    src="{{ absolute_url(asset('assets/img/logo.png')) }}" alt="" class="img-fluid"
+                    style="max-width: 80px; height: auto;"></a>
+            <span class="text-white ms-3"
+                style="font-size: 30px; color: white; font-weight: bold; line-height: 200%;">Couverture
+                +</span> <!-- Ajustez la taille de la police et la hauteur de ligne selon vos besoins -->
+        </div>
+    </div>
+</header>
+
+<body>
+    {% apply inline_css(source('@emails_css/devis.css'))%}
+    <br>
+    <h3>Bonjour {{ prenom|capitalize }},</h3>
+    <p>Votre demande nous a bien été transmise, nous revenons vers vous dans les plus brefs délais.</p>
+    <p style="text-align: right;">L'équipe Couverture+</p>
+    {% endapply %}
+</body>
+
+</html>

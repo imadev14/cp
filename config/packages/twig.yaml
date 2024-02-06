@@ -1,6 +1,10 @@
 twig:
     form_themes: ['bootstrap_5_horizontal_layout.html.twig']
     file_name_pattern: '*.twig'
+    paths:
+        '%kernel.project_dir%/emails/css': 'emails_css'
+        '%kernel.project_dir%/emails/templates': 'emails_templates'
+
 
 when@test:
     twig:
