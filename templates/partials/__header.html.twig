@@ -8,8 +8,9 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto active" href="{{ path('app_accueil') }}">Accueil</a></li>
-                <li class="dropdown"><a href="{{ path('app_couverture') }}"><span>Couverture</span> <i
+                <li><a class="nav-link scrollto" href="{{ path('app_accueil') }}">Accueil</a></li>
+                <li class="dropdown"><a class="nav-link scrollto"
+                        href=" {{ path('app_couverture') }}"><span>Couverture</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="{{ path('app_couverture')}}#Isolation toiture">Isolation Toiture</a></li>
@@ -23,8 +24,8 @@
                         <li><a href="#Programme d'entretien préventif">Programme d'entretien préventif</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="{{ path('app_toiture') }}"><span>Type de toiture</span> <i
-                            class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a class="nav-link scrollto" href="{{ path('app_toiture') }}"><span>Type de
+                            toiture</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="{{ path('app_toiture') }}#Toits en pente">Toits en pente</a>
                         </li>
@@ -34,8 +35,8 @@
                         <li><a href="{{ path('app_toiture') }}#Toits en metal">Toits en metal</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="{{ path('app_materiaux') }}"><span>Matériaux de couverture</span> <i
-                            class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a class="nav-link scrollto" href="{{ path('app_materiaux') }}"><span>Matériaux de
+                            couverture</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="{{ path('app_materiaux') }}#Ardoise">Ardoise</a></li>
                         <li><a href="{{ path('app_materiaux') }}#Bois">Bois</a></li>
@@ -44,8 +45,8 @@
                                 aluminium, cuivre)</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="{{ path('app_peinture') }}"><span>Peinture</span> <i
-                            class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a class="nav-link scrollto"
+                        href="{{ path('app_peinture') }}"><span>Peinture</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="{{ path('app_peinture') }}#Peinture ravalement">Peinture ravalement</a>
                         </li>
@@ -59,8 +60,9 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        <a href="tel:+33649931360" class="get-started-btn scrollto d-md-none"><strong
-                class="bi bi-telephone-outbound-fill"></strong></a>
+        {% for phoneNumber in phoneNumbers %}
+        <a href="tel:{{ phoneNumber.number }}" class="get-started-btn scrollto d-md-none"><strong
+                class="bi bi-telephone-outbound-fill"></strong></a>{% endfor %}
         <a href="{{ path('app_devis') }}" class="get-started-btn scrollto"><strong>Devis ></strong></a>
     </div>
 </header>

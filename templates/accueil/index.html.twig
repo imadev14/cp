@@ -600,13 +600,17 @@
                         <div class="email">
                             <i class="bi bi-envelope"></i>
                             <h4>Email:</h4>
-                            <p>info@couverture-plus.fr</p>
+                            {% for email in emails %}
+                            <p>{{ email.address }}</p>
+                            {% endfor %}
                         </div>
 
                         <div class="phone">
                             <i class="bi bi-phone"></i>
                             <h4>Téléphone:</h4>
-                            <p>0203040506</p>
+                            {% for phoneNumber in phoneNumbers %}
+                            <p>{{ phoneNumber.number }}</p>
+                            {% endfor %}
                         </div>
 
                     </div>

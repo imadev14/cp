@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\EmailRepository;
+use App\Repository\PhoneNumberRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AccueilController extends AbstractController
 {
     #[Route('/', name: 'app_accueil')]
-    public function index(Request $request, EntityManagerInterface $em, MailerInterface $mailer): Response
+    public function index(Request $request, EntityManagerInterface $em, MailerInterface $mailer, PhoneNumberRepository $phoneNumberRepository, EmailRepository $emailRepository): Response
     {
         $contact = new Contact();
         $formContact = $this->createForm(ContactType::class, $contact);
@@ -35,8 +37,13 @@ class AccueilController extends AbstractController
             return $this->redirectToRoute('app_devis_confirmation');
         }
 
+        $emails = $emailRepository->findAll();
+        $phoneNumbers = $phoneNumberRepository->findAll();
+
         return $this->render('accueil/index.html.twig', [
             'form' => $formContact->createView(),
+            'emails' => $emails,
+            'phoneNumbers' => $phoneNumbers
         ]);
     }
 }

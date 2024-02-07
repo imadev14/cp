@@ -12,8 +12,12 @@
                         <p>
                             2b rue des frères Chappe <br>
                             14540, Grentheville<br><br>
-                            <strong>Telephone:</strong> 0649931360<br>
-                            <strong>Email:</strong> contact@couverture-plus.fr<br>
+                            {% for phoneNumber in phoneNumbers %}
+                            <strong>Telephone:</strong> {{ phoneNumber.number }}<br>
+                            {% endfor %}
+                            {% for email in emails %}
+                            <strong>Email:</strong> {{ email.address }}<br>
+                            {% endfor %}
                         </p>
                     </div>
                 </div>

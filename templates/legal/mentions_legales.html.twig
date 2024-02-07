@@ -11,8 +11,12 @@
     <h2>Couverture+ <br>
         SIRET : [votre numéro SIRET] <br>
         Adresse : 2b rue des freres chappe 14540 Grentheville <br>
-        Téléphone : 0649931360 <br>
-        Email : contact@couverture-plus.fr <br>
+        {% for phoneNumber in phoneNumbers %}
+        Téléphone : {{ phoneNumber.number }} <br>
+        {% endfor %}
+        {% for email in emails %}
+        Email : {{ email.address }} <br>
+        {% endfor %}
         Directeur de la publication : Damien Lajoie
     </h2>
     <br>

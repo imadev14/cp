@@ -163,9 +163,12 @@
     <br>
     <h2>Si vous avez des questions sur cette Politique de confidentialité, vous pouvez nous
         contacter :
-        <br>
-        Par mail : contact@couverture-plus.fr <br>
-        Par telephone : 06 49 93 13 60
+        <br>{% for email in emails %}
+        Par mail : {{ email.address }} <br>
+        {% endfor %}
+        {% for phoneNumber in phoneNumbers %}
+        Par telephone : {{ phoneNumber.number }}
+        {% endfor %}
     </h2>
 </section>
 {% endblock %}
