@@ -29,6 +29,9 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $etat = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,5 +95,21 @@ class Contact
         $this->prenom = $prenom;
 
         return $this;
+    }
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+    public function __construct()
+    {
+        // Initialise la propriété etat avec la valeur par défaut "À traiter"
+        $this->etat = 'à_traiter';
     }
 }

@@ -27,7 +27,8 @@ class CouvertureController extends AbstractController
                 ])
             ]),
             'emails' => $emails,
-            'phoneNumbers' => $phoneNumbers
+            'phoneNumbers' => $phoneNumbers,
+
         ]);
     }
 }

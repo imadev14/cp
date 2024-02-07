@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\CategoryRepository;
 use App\Repository\EmailRepository;
 use App\Repository\PhoneNumberRepository;
 use Doctrine\ORM\EntityManagerInterface;
